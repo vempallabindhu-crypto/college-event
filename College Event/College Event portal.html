@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>College Fest 2026</title>
+
+    <style>
+
+        /* =========================
+           BASIC RESET
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f7fb;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* =========================
+           NAVIGATION BAR
+        ========================== */
+
+        header {
+            background: #172554;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 15px 20px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+
+        /* =========================
+           HOME
+        ========================== */
+
+        .home {
+            min-height: 90vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 50px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(23, 37, 84, 0.85),
+                    rgba(30, 64, 175, 0.85)
+                ),
+                url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30")
+                center/cover;
+        }
+
+        .home-content {
+            color: white;
+            max-width: 800px;
+        }
+
+        .home-content h1 {
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        .home-content h2 {
+            font-size: 28px;
+            color: #7dd3fc;
+            margin-bottom: 20px;
+        }
+
+        .home-content p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            background: #38bdf8;
+            color: #172554;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           COMMON SECTION
+        ========================== */
+
+        section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 34px;
+            color: #172554;
+            margin-bottom: 40px;
+        }
+
+        /* =========================
+           ANNOUNCEMENTS
+        ========================== */
+
+        .announcement {
+            background: #dbeafe;
+            padding: 18px;
+            text-align: center;
+            color: #172554;
+            font-weight: bold;
+        }
+
+        /* =========================
+           EVENT LISTINGS
+        ========================== */
+
+        .events-container {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.08);
+
+            transition: 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .event-image {
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .event-content {
+            padding: 20px;
+        }
+
+        .event-content h3 {
+            color: #1d4ed8;
+            margin-bottom: 10px;
+        }
+
+        .event-date {
+            font-weight: bold;
+            color: #475569;
+            margin-bottom: 8px;
+        }
+
+        .event-content p {
+            margin-bottom: 15px;
+        }
+
+        .register-btn {
+            border: none;
+            background: #1d4ed8;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .register-btn:hover {
+            background: #172554;
+        }
+
+        /* =========================
+           SCHEDULE
+        ========================== */
+
+        .schedule-table {
+            max-width: 1000px;
+            margin: auto;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #172554;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f1f5f9;
+        }
+
+        /* =========================
+           REGISTRATION FORM
+        ========================== */
+
+        .registration {
+            background: #e0f2fe;
+        }
+
+        .registration-form {
+            max-width: 650px;
+            margin: auto;
+
+            background: white;
+            padding: 30px;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+
+            border: 1px solid #cbd5e1;
+            border-radius: 5px;
+
+            font-size: 15px;
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 13px;
+
+            border: none;
+            border-radius: 5px;
+
+            background: #1d4ed8;
+            color: white;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #172554;
+        }
+
+        #registrationMessage {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        /* =========================
+           GALLERY
+        ========================== */
+
+        .gallery {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+
+            object-fit: cover;
+
+            border-radius: 8px;
+
+            transition: 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact-container {
+            max-width: 1000px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 30px;
+        }
+
+        .contact-box {
+            background: white;
+            padding: 30px;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-box h3 {
+            color: #1d4ed8;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            margin-bottom: 10px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #172554;
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+        }
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .events-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .home-content h1 {
+                font-size: 38px;
+            }
+
+            .home-content h2 {
+                font-size: 22px;
+            }
+
+            .events-container {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 50px 5%;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header>
+
+        <nav>
+
+            <div class="logo">
+                College<span>Fest</span>
+            </div>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#events">Events</a>
+                </li>
+
+                <li>
+                    <a href="#schedule">Schedule</a>
+                </li>
+
+                <li>
+                    <a href="#registration">Register</a>
+                </li>
+
+                <li>
+                    <a href="#gallery">Gallery</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         ANNOUNCEMENT
+    ========================== -->
+
+    <div class="announcement">
+
+        📢 Announcement:
+        College Fest 2026 registration is now open!
+
+    </div>
+
+
+    <!-- =========================
+         HOMEPAGE
+    ========================== -->
+
+    <section class="home" id="home">
+
+        <div class="home-content">
+
+            <h1>COLLEGE FEST 2026</h1>
+
+            <h2>Celebrate • Compete • Connect</h2>
+
+            <p>
+                Welcome to our annual college festival!
+                Participate in exciting technical, cultural,
+                sports and entertainment events.
+            </p>
+
+            <a href="#events" class="btn">
+                Explore Events
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EVENT LISTINGS
+    ========================== -->
+
+    <section id="events">
+
+        <h2 class="section-title">
+            Event Listings
+        </h2>
+
+        <div class="events-container">
+
+
+            <!-- Event 1 -->
+
+            <div class="event-card">
+
+                <img
+                    class="event-image"
+                    src="https://images.unsplash.com/photo-1518770660439-4636190af475"
+                    alt="Technical Event"
+                >
+
+                <div class="event-content">
+
+                    <h3>Tech Quiz</h3>
+
+                    <div class="event-date">
+                        📅 10 October 2026 | 10:00 AM
+                    </div>
+
+                    <p>
+                        Test your knowledge of technology,
+                        programming and computer science.
+                    </p>
+
+                    <button
+                        class="register-btn"
+                        onclick="selectEvent('Tech Quiz')"
+                    >
+                        Register
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Event 2 -->
+
+            <div class="event-card">
+
+                <img
+                    class="event-image"
+                    src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f"
+                    alt="Music Event"
+                >
+
+                <div class="event-content">
+
+                    <h3>Music Fest</h3>
+
+                    <div class="event-date">
+                        📅 10 October 2026 | 2:00 PM
+                    </div>
+
+                    <p>
+                        Enjoy amazing performances and
+                        showcase your musical talent.
+                    </p>
+
+                    <button
+                        class="register-btn"
+                        onclick="selectEvent('Music Fest')"
+                    >
+                        Register
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Event 3 -->
+
+            <div class="event-card">
+
+                <img
+                    class="event-image"
+                    src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e"
+                    alt="Sports Event"
+                >
+
+                <div class="event-content">
+
+                    <h3>Sports Championship</h3>
+
+                    <div class="event-date">
+                        📅 11 October 2026 | 9:00 AM
+                    </div>
+
+                    <p>
+                        Participate in exciting sports competitions
+                        and compete with other teams.
+                    </p>
+
+                    <button
+                        class="register-btn"
+                        onclick="selectEvent('Sports Championship')"
+                    >
+                        Register
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Event 4 -->
+
+            <div class="event-card">
+
+                <img
+                    class="event-image"
+                    src="https://images.unsplash.com/photo-1531058020387-3be344556be6"
+                    alt="Dance Event"
+                >
+
+                <div class="event-content">
+
+                    <h3>Dance Competition</h3>
+
+                    <div class="event-date">
+                        📅 11 October 2026 | 3:00 PM
+                    </div>
+
+                    <p>
+                        Show your creativity and talent through
+                        exciting dance performances.
+                    </p>
+
+                    <button
+                        class="register-btn"
+                        onclick="selectEvent('Dance Competition')"
+                    >
+                        Register
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Event 5 -->
+
+            <div class="event-card">
+
+                <img
+                    class="event-image"
+                    src="https://images.unsplash.com/photo-1550745165-9bc0b252726f"
+                    alt="Gaming Event"
+                >
+
+                <div class="event-content">
+
+                    <h3>Gaming Challenge</h3>
+
+                    <div class="event-date">
+                        📅 12 October 2026 | 11:00 AM
+                    </div>
+
+                    <p>
+                        Compete against other participants in
+                        exciting gaming challenges.
+                    </p>
+
+                    <button
+                        class="register-btn"
+                        onclick="selectEvent('Gaming Challenge')"
+                    >
+                        Register
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Event 6 -->
+
+            <div class="event-card">
+
+                <img
+                    class="event-image"
+                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
+                    alt="Coding Event"
+                >
+
+                <div class="event-content">
+
+                    <h3>Coding Challenge</h3>
+
+                    <div class="event-date">
+                        📅 12 October 2026 | 2:00 PM
+                    </div>
+
+                    <p>
+                        Solve programming problems and demonstrate
+                        your coding skills.
+                    </p>
+
+                    <button
+                        class="register-btn"
+                        onclick="selectEvent('Coding Challenge')"
+                    >
+                        Register
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EVENT SCHEDULE
+    ========================== -->
+
+    <section id="schedule">
+
+        <h2 class="section-title">
+            Event Schedule
+        </h2>
+
+        <div class="schedule-table">
+
+            <table>
+
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Event</th>
+                    <th>Venue</th>
+                </tr>
+
+                <tr>
+                    <td>10 Oct</td>
+                    <td>10:00 AM</td>
+                    <td>Tech Quiz</td>
+                    <td>Seminar Hall</td>
+                </tr>
+
+                <tr>
+                    <td>10 Oct</td>
+                    <td>2:00 PM</td>
+                    <td>Music Fest</td>
+                    <td>Open Auditorium</td>
+                </tr>
+
+                <tr>
+                    <td>11 Oct</td>
+                    <td>9:00 AM</td>
+                    <td>Sports Championship</td>
+                    <td>College Ground</td>
+                </tr>
+
+                <tr>
+                    <td>11 Oct</td>
+                    <td>3:00 PM</td>
+                    <td>Dance Competition</td>
+                    <td>Main Auditorium</td>
+                </tr>
+
+                <tr>
+                    <td>12 Oct</td>
+                    <td>11:00 AM</td>
+                    <td>Gaming Challenge</td>
+                    <td>Computer Lab</td>
+                </tr>
+
+                <tr>
+                    <td>12 Oct</td>
+                    <td>2:00 PM</td>
+                    <td>Coding Challenge</td>
+                    <td>Programming Lab</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         REGISTRATION
+    ========================== -->
+
+    <section
+        class="registration"
+        id="registration"
+    >
+
+        <h2 class="section-title">
+            Event Registration
+        </h2>
+
+        <form
+            class="registration-form"
+            id="registrationForm"
+        >
+
+            <div class="form-group">
+
+                <label for="name">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
